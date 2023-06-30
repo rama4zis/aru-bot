@@ -13,3 +13,19 @@ client.on('ready', () => {
 });
 
 client.initialize();
+
+const MessageHandler = require('./handler/messageHandler');
+
+client.on('message', async message => {
+
+    // console.log(message);
+
+	if(message.body === '!ping') {
+		// message.reply('pong'); // Reply to the user's message
+        client.sendMessage(message.from, 'pong'); // Send a new message to the user
+	}
+
+    let result = new MessageHandler(client, message);
+
+    result.checkMessage();
+});
