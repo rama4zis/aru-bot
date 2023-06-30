@@ -9,20 +9,23 @@ class MessageHandler {
 
     async checkMessage() {
 
-        switch(true) {
-            case this.msgData.body === '.s':
+        const chat = this.msgData.body.toLowerCase();
+
+        switch (true) {
+            case chat === '.s':
                 // check if msg has media 
                 console.log('test media')
-                if(this.msgData.hasMedia){
+                if (this.msgData.hasMedia) {
                     const media = await this.msgData.downloadMedia(); // Download Image
                     this.client.sendMessage(this.msgData.from, media, {
                         sendMediaAsSticker: true,
                         stickerAuthor: '+62 895-4139-26068',
                         stickerName: 'Aru Chatbot'
                     })
-                }else{
+                } else {
                     this.client.sendMessage(this.msgData.from, 'Please send a media file');
                 }
+                break;
         }
 
     }
