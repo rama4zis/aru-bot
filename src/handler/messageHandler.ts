@@ -1,3 +1,5 @@
+import StickerController from "../controller/stickerController"
+
 class MessageHandler {
     msgData: any
     client: any
@@ -13,18 +15,7 @@ class MessageHandler {
 
         switch (true) {
             case chat === '.s':
-                // check if msg has media 
-                console.log('test media')
-                if (this.msgData.hasMedia) {
-                    const media = await this.msgData.downloadMedia(); // Download Image
-                    this.client.sendMessage(this.msgData.from, media, {
-                        sendMediaAsSticker: true,
-                        stickerAuthor: '+62 895-4139-26068',
-                        stickerName: 'Aru Chatbot'
-                    })
-                } else {
-                    this.client.sendMessage(this.msgData.from, 'Please send a media file');
-                }
+                new StickerController(this.client, this.msgData).stickerNormal()
                 break;
         }
 
