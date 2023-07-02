@@ -4,6 +4,8 @@ const client = new Client({
     authStrategy: new LocalAuth()
 });
 
+import GetMsg = require('./events/getMsg');
+
 client.on('qr', (qr) => {
     qrcode.generate(qr, { small: true });
 });
@@ -13,8 +15,6 @@ client.on('ready', () => {
 });
 
 client.initialize();
-
-const MessageHandler = require('./handler/messageHandler');
 
 client.on('message', async message => {
 
@@ -36,7 +36,7 @@ client.on('message', async message => {
         });
     }
 
-    let result = new MessageHandler(client, message);
+    let result = new GetMsg(client, message);
 
     result.checkMessage();
 });

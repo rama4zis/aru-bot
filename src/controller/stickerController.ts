@@ -1,11 +1,7 @@
-class StickerController {
-    msgData: any;
-    client: any;
+import MessageHandler from "../handler/messageHandler";
 
-    constructor(client: any, msgData: any) {
-        this.msgData = msgData
-        this.client = client
-    }
+
+class StickerController extends MessageHandler {
 
     async stickerNormal() {
         if (this.msgData.hasMedia) {

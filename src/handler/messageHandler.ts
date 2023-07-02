@@ -1,5 +1,3 @@
-import StickerController from "../controller/stickerController"
-
 class MessageHandler {
     msgData: any
     client: any
@@ -7,18 +5,6 @@ class MessageHandler {
 
         this.msgData = msgData
         this.client = client
-    }
-
-    async checkMessage() {
-
-        const chat = this.msgData.body.toLowerCase();
-
-        switch (true) {
-            case chat === '.s':
-                new StickerController(this.client, this.msgData).stickerNormal()
-                break;
-        }
-
     }
 }
 
