@@ -1,7 +1,7 @@
 import MessageHandler from "../handler/messageHandler";
 
 
-class StickerController extends MessageHandler {
+export default class StickerController extends MessageHandler {
 
     async stickerNormal() {
         if (this.msgData.hasMedia && this.msgData.type === 'image') {
@@ -37,5 +37,3 @@ class StickerController extends MessageHandler {
     }
 
 }
-
-export = StickerController;
