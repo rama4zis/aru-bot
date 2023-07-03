@@ -24,7 +24,7 @@ class YoutubeMp3Controller extends MessageHandler {
             this.client.sendMessage(this.msgData.from, "Download selesai, tunggu sebentar lagi ya...");
             this.client.sendMessage(this.msgData.from, media, {
                 sendMediaAsDocument: true,
-                caption: "Berikut hasilnya..."
+                caption: "Done... 😁"
             });
 
             // delete the file 
