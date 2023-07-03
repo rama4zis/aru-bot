@@ -2,6 +2,8 @@ import { Client, LocalAuth } from 'whatsapp-web.js';
 import qrcode from 'qrcode-terminal';
 import ffmpeg from '@ffmpeg-installer/ffmpeg'
 
+import sleep = require('./helper/delay');
+
 const chromium = require('chromium');
 
 
@@ -29,6 +31,7 @@ client.initialize();
 
 client.on('message', async message => {
 
+    await sleep(2000);
     // console.log(message);
     if (message.body === '!ping') {
 
@@ -45,6 +48,7 @@ client.on('message', async message => {
         await chat.sendMessage(`Hello @${contact.id.user}`, {
             mentions: [contact]
         });
+        return;
     }
 
     let result = new GetMsg(client, message);
