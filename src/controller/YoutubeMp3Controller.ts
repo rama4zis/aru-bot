@@ -25,20 +25,19 @@ class YoutubeMp3Controller extends MessageHandler {
             this.client.sendMessage(this.msgData.from, media, {
                 sendMediaAsDocument: true,
                 caption: "Done... 😁"
+            }).then(() => {
+                // delete the file 
+                const fs = require('fs');
+                fs.unlink(`downloads/${userId}.mp3`, (err: any) => {
+                    if (err) {
+                        console.error(err)
+                        return
+                    }
+                })
             });
-
-            // delete the file 
-            const fs = require('fs');
-            fs.unlink(`downloads/${userId}.mp3`, (err: any) => {
-                if (err) {
-                    console.error(err)
-                    return
-                }
-            })
-            
         } catch (error) {
             console.log("error: ", error);
-        } 
+        }
     }
 
 }
