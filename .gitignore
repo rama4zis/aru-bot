@@ -1,4 +1,6 @@
 .wwebjs_cache/
 .wwebjs_auth/
-node_modules/
+node_modules
+!node_modules/whatsapp-web.js/src/structures/Message.js
 downloads/*
+dist
