@@ -15,8 +15,11 @@ class GetMsg {
         const chat = this.msgData.body.toLowerCase();
 
         switch (true) {
-            case chat === '.s':
+            case chat === '.s': // Sticker
                 new StickerController(this.client, this.msgData).stickerNormal()
+                break;
+            case chat === '.sg': // Sticker Gif
+                new StickerController(this.client, this.msgData).stickerGif()
                 break;
             default:
                 new MenuController(this.client, this.msgData).menu()

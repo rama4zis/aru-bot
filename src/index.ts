@@ -1,10 +1,21 @@
 import { Client, LocalAuth } from 'whatsapp-web.js';
 import qrcode from 'qrcode-terminal';
+import ffmpeg from '@ffmpeg-installer/ffmpeg'
+
+const chromium = require('chromium');
+
+
 const client = new Client({
-    authStrategy: new LocalAuth()
+    authStrategy: new LocalAuth(),
+    puppeteer: {
+        executablePath: chromium.path,
+        args: ['--no-sandbox'],
+        ignoreHTTPSErrors: true
+    },
+    ffmpegPath: ffmpeg.path
 });
 
-import GetMsg = require('./events/getMsg');
+import GetMsg = require('./events/GetMsg');
 
 client.on('qr', (qr) => {
     qrcode.generate(qr, { small: true });
@@ -19,8 +30,8 @@ client.initialize();
 client.on('message', async message => {
 
     // console.log(message);
-
     if (message.body === '!ping') {
+
         // message.reply('pong'); // Reply to the user's message
         client.sendMessage(message.from, 'pong'); // Send a new message to the user
     }
