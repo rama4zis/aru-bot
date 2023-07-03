@@ -1,5 +1,6 @@
 import MenuController from "../controller/MenuController"
 import StickerController from "../controller/StickerController"
+import YoutubeMp3Controller from "../controller/YoutubeMp3Controller"
 
 class GetMsg {
     msgData: any
@@ -21,9 +22,9 @@ class GetMsg {
             case chat === '.sg': // Sticker Gif
                 new StickerController(this.client, this.msgData).stickerGif()
                 break;
-            // case chat.substring(0, chat.indexOf(' ')) === '.ytmp3': // Youtube Mp3
-            //     new YoutubeMp3Controller(this.client, this.msgData).youtubeMp3()
-            //     break;
+            case chat.substring(0, chat.indexOf(' ')) === '.ytmp3': // Youtube Mp3
+                new YoutubeMp3Controller(this.client, this.msgData).youtubeMp3()
+                break;
             default:
                 new MenuController(this.client, this.msgData).menu()
                 break;
