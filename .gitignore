@@ -4,3 +4,4 @@ node_modules
 !node_modules/whatsapp-web.js/src/structures/Message.js
 downloads/*
 dist
+.env

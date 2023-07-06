@@ -1,3 +1,4 @@
+import CharacterAIController from "../controller/CharacterAIController"
 import MenuController from "../controller/MenuController"
 import StickersController from "../controller/StickersController"
 import YoutubeMp3Controller from "../controller/YoutubeMp3Controller"
@@ -25,8 +26,11 @@ class GetMsg {
             case chat.substring(0, chat.indexOf(' ')) === '.ytmp3': // Youtube Mp3
                 new YoutubeMp3Controller(this.client, this.msgData).youtubeMp3()
                 break;
-            default:
+            case chat === '.menu':
                 new MenuController(this.client, this.msgData).menu()
+                break;
+            default:
+                new CharacterAIController(this.client, this.msgData).defaultReply()
                 break;
         }
 
