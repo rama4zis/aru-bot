@@ -9,8 +9,8 @@ class CharacterAIController extends MessageHandler {
         dotenv.config();
 
         (async () => {
-            await characterAI.authenticateWithToken(process.env.CHARACTER_AI_KEY);
-            // await characterAI.authenticateAsGuest();
+            // await characterAI.authenticateWithToken(process.env.CHARACTER_AI_KEY);
+            await characterAI.authenticateAsGuest();
 
             const characterId = "8_1NyR8w1dOXmI1uWaieQcd147hecbdIK7CeEAIrdJw" // Aru
 
