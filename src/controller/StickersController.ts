@@ -27,7 +27,7 @@ export default class StickersController extends MessageHandler {
                 this.client.sendMessage(this.msgData.from, media, {
                     sendMediaAsSticker: true,
                     stickerAuthor: '+62 895-4139-26068',
-                    stickerName: 'Arisu Chatbot'
+                    stickerName: 'Aru Chatbot'
                 })
                 console.log('Sticker Gif sent');
             } catch (error) {
