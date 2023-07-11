@@ -30,7 +30,8 @@ class GetMsg {
                 new MenuController(this.client, this.msgData).menu()
                 break;
             default:
-                new CharacterAIController(this.client, this.msgData).defaultReply()
+                const authorName = await this.msgData.getContact()
+                new CharacterAIController(this.client, this.msgData).defaultReply(authorName.pushname)
                 break;
         }
 
