@@ -31,7 +31,12 @@ class GetMsg {
                 break;
             default:
                 const authorName = await this.msgData.getContact()
-                // new CharacterAIController(this.client, this.msgData).defaultReply(authorName.pushname)
+                try {
+                    new CharacterAIController(this.client, this.msgData).defaultReply(authorName.pushname)
+                } catch (error) {
+                    console.log(error)
+                    await this.client.sendMessage(this.msgData.from, 'Maaf, bot AI seng terkena limit, coba lagi nanti ya...')
+                }
                 break;
         }
 
