@@ -18,16 +18,16 @@ class GetMsg {
 
         switch (true) {
             case chat === '.s': // Sticker
-                // new StickersController(this.client, this.msgData).stickerNormal()
+                new StickersController(this.client, this.msgData).stickerNormal()
                 break;
             case chat === '.sg': // Sticker Gif
-                // new StickersController(this.client, this.msgData).stickerGif()
+                new StickersController(this.client, this.msgData).stickerGif()
                 break;
             case chat.substring(0, chat.indexOf(' ')) === '.ytmp3': // Youtube Mp3
-                // new YoutubeMp3Controller(this.client, this.msgData).youtubeMp3()
+                new YoutubeMp3Controller(this.client, this.msgData).youtubeMp3()
                 break;
             case chat === '.menu':
-                // new MenuController(this.client, this.msgData).menu()
+                new MenuController(this.client, this.msgData).menu()
                 break;
             default:
                 const authorName = await this.msgData.getContact()
