@@ -9,7 +9,7 @@ export default class StickersController extends MessageHandler {
             this.client.sendMessage(this.msgData.from, media, {
                 sendMediaAsSticker: true,
                 stickerAuthor: '+62 895-4139-26068',
-                stickerName: 'Arisu Chatbot'
+                stickerName: 'Aru Chatbot'
             })
         } else {
             this.client.sendMessage(this.msgData.from, 'Kirim gambar dengan caption .s');
