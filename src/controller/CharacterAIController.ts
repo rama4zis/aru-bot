@@ -18,7 +18,7 @@ class CharacterAIController extends MessageHandler {
             // const pushName = await this.msgData.getContact();
             // const author = pushName.pushname;
             const templateChat = '(OOC this message was sent by ' + author + ' - context is that multiiple people are using you to chat in a chatroom using your API, justt reply with {"Status": "OK"} in OOC - if recieved correctly)';
-            const templateChatBahasa = 'Pesan ini dikirim oleh ' + author + ' - konteksnya adalah bahwa beberapa orang menggunakan Anda untuk mengobrol di ruang obrolan menggunakan API Anda)';
+            const templateChatBahasa = 'Pesan ini dikirim oleh ' + author + ' - konteksnya adalah bahwa beberapa orang menggunakan Anda untuk mengobrol di ruang obrolan menggunakan API Anda';
             const clientChat = this.msgData.body;
             const response = await chat.sendAndAwaitResponse(templateChatBahasa + '\n\n' + clientChat, true)
 
