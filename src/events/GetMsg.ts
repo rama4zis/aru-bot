@@ -31,7 +31,7 @@ class GetMsg {
                 break;
             default:
                 const authorName = await this.msgData.getContact()
-                    new CharacterAIController(this.client, this.msgData).defaultReply(authorName.pushname)
+                await new CharacterAIController(this.client, this.msgData).defaultReply(authorName.pushname)
                 break;
         }
 
